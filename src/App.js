@@ -7,14 +7,31 @@ import Filter from './components/Filter/Filter';
 
 class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-12345', name: 'Daniel Defoe', number: '987-6541210' },
+    contacts: [],
+    filter: '',
+  };
+
+  /*
+   { id: 'id-12345', name: 'Daniel Defoe', number: '987-6541210' },
       { id: 'id-54321', name: 'Jonathan Swift', number: '987-6542210' },
       { id: 'id-98765', name: 'Robert Stevenson', number: '987-6543210' },
       { id: 'id-56789', name: 'Lewis Carroll', number: '987-6544210' },
-    ],
-    filter: '',
-  };
+*/
+
+  componentDidMount() {
+    console.log('C. was MOUNTED');
+
+    const storedData = localStorage.getItem('al-phonebook');
+    const parsedData = JSON.parse(storedData);
+
+    this.setState(contacts => ({ contacts: parsedData }));
+  }
+
+  componentDidUpdate() {
+    console.log('C. was UPDATED');
+
+    localStorage.setItem('al-phonebook', JSON.stringify(this.state.contacts));
+  }
 
   contactsChecker = name => {
     const { contacts } = this.state;
@@ -59,7 +76,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <PageTitle title={'HomeWork #2-Phonebook of React'} />
+        <PageTitle title={'HomeWork #3-Phonebook of React'} />
         <Form onSubmitData={this.formSubmitHandler} />
         <Filter contacts={this.state.filter} onChange={this.filterHandler} />
         <ContactList
