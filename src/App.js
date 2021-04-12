@@ -24,7 +24,7 @@ class App extends Component {
     const storedData = localStorage.getItem('al-phonebook');
     const parsedData = JSON.parse(storedData);
 
-    this.setState(contacts => ({ contacts: parsedData }));
+    if (parsedData) this.setState(contacts => ({ contacts: parsedData }));
   }
 
   componentDidUpdate() {
