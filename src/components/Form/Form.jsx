@@ -18,8 +18,8 @@ class Form extends Component {
     });
   };
 
-  handleSubmit = evt => {
-    evt.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
 
     this.props.onSubmitData(this.state);
 

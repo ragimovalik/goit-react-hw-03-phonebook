@@ -19,7 +19,7 @@ class App extends Component {
 */
 
   componentDidMount() {
-    console.log('C. was MOUNTED');
+    // console.log('C. was MOUNTED');
 
     const storedData = localStorage.getItem('al-phonebook');
     const parsedData = JSON.parse(storedData);
@@ -28,9 +28,11 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    console.log('C. was UPDATED');
+    const { contacts } = this.state;
 
-    localStorage.setItem('al-phonebook', JSON.stringify(this.state.contacts));
+    // console.log('C. was UPDATED');
+
+    localStorage.setItem('al-phonebook', JSON.stringify(contacts));
   }
 
   contactsChecker = name => {
