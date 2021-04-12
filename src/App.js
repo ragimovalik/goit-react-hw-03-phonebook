@@ -61,10 +61,10 @@ class App extends Component {
   };
 
   filteredContacts = () => {
-    const { contacts, filter } = this.state;
-    const normalizedText = filter.toLowerCase();
+    // const { contacts, filter } = this.state;
+    const normalizedText = this.state.filter.toLowerCase();
 
-    return contacts.filter(contact =>
+    return this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedText),
     );
   };
