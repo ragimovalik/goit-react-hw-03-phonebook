@@ -4,7 +4,7 @@ import { MdDelete } from 'react-icons/md';
 import { IconContext } from 'react-icons';
 
 const ContactListItem = ({ name, number, id, onClick }) => (
-  <>
+  <li className={styles.ContactList__item}>
     <p className={styles.ContactList__name}>{name}</p>
     <p className={styles.ContactList__phone}>{number}</p>
 
@@ -20,7 +20,7 @@ const ContactListItem = ({ name, number, id, onClick }) => (
         <MdDelete className={styles.ContactList__icon} />
       </div>
     </IconContext.Provider>
-  </>
+  </li>
 );
 
 ContactListItem.propTypes = {

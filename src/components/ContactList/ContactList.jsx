@@ -6,18 +6,15 @@ const ContactList = ({ contacts, onClick }) => (
   <div className={styles.ContactList}>
     <h3 className={styles.ContactList__title}>Contact List</h3>
     <ul>
-      {contacts.map(({ id, name, number }) => {
-        return (
-          <li key={id} className={styles.ContactList__item}>
-            <ContactListItem
-              id={id}
-              name={name}
-              number={number}
-              onClick={onClick}
-            />
-          </li>
-        );
-      })}
+      {contacts.map(({ id, name, number }) => (
+        <ContactListItem
+          key={id}
+          id={id}
+          name={name}
+          number={number}
+          onClick={onClick}
+        />
+      ))}
     </ul>
   </div>
 );
@@ -31,6 +28,7 @@ ContactList.propTypes = {
         .isRequired,
     }),
   ).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ContactList;
